@@ -24,7 +24,7 @@ init:
 	@rm -rf $(MAKE_DIR) && mkdir -p $(MAKE_DIR)
 	@for MAKE_FILE in $(MAKE_FILES); do docker run --rm curlimages/curl -sSL $(MAKE_URI)/$(MAKE_VERSION)/$${MAKE_FILE}.mk > $(MAKE_DIR)/$${MAKE_FILE}.mk; done
 
-include ./.make/*.mk
+include $(ROOT_DIR)/.make/*.mk
 
 # your repo/project specific targets/rules go here
 ```
