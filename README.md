@@ -11,6 +11,8 @@
 ## Makefile
 
 ```makefile
+ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+
 # your repo/project specific config go here
 
 init: MAKE_NAME = .make
