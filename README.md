@@ -17,14 +17,14 @@ ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 init: MAKE_NAME = .make
 init: MAKE_URI = https://raw.githubusercontent.com/garyrutland/$(MAKE_NAME)
-init: MAKE_VERSION = v0
+init: MAKE_VERSION = refs/heads/main
 init: MAKE_DIR = ./$(MAKE_NAME)
-init: MAKE_FILES = git python
+init: MAKE_FILES = aws docker git python terraform
 init:
 	@rm -rf $(MAKE_DIR) && mkdir -p $(MAKE_DIR)
 	@for MAKE_FILE in $(MAKE_FILES); do docker run --rm curlimages/curl -sSL $(MAKE_URI)/$(MAKE_VERSION)/$${MAKE_FILE}.mk > $(MAKE_DIR)/$${MAKE_FILE}.mk; done
 
-include $(ROOT_DIR)/.make/*.mk
+-include $(ROOT_DIR)/.make/*.mk
 
 # your repo/project specific targets/rules go here
 ```
