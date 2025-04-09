@@ -1,8 +1,10 @@
 # docker
 
-DKR_MAKEFILE_DIR = $(abspath $(dir $(filter %/docker.mk,$(MAKEFILE_LIST))))
+ifeq (, $(shell which docker))
+$(error "Executable 'docker' not found in PATH")
+endif
 
-include $(DKR_MAKEFILE_DIR)/_internal/validation-docker.mk
+DKR_MAKEFILE_DIR := $(abspath $(dir $(filter %/docker.mk,$(MAKEFILE_LIST))))
 
 dkr_version:
 	docker --version

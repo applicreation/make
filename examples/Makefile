@@ -6,4 +6,6 @@ GIT_DIR = $(PWD)/../.git
 
 PYTHON_VERSION = 3.8
 
+TF_VERSION = 1.11.3
+
 include ../*.mk

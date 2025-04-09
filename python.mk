@@ -1,16 +1,18 @@
 # python
 
-PYTHON_MAKEFILE_DIR = $(abspath $(dir $(filter %/python.mk,$(MAKEFILE_LIST))))
+ifndef PYTHON_VERSION
+$(error "PYTHON_VERSION is not set")
+endif
 
-include $(PYTHON_MAKEFILE_DIR)/_internal/validation-docker.mk
-include $(PYTHON_MAKEFILE_DIR)/_internal/validation-python.mk
+PYTHON_MAKEFILE_DIR := $(abspath $(dir $(filter %/python.mk,$(MAKEFILE_LIST))))
 
+PYTHON_IMAGE ?= python:$(PYTHON_VERSION)-alpine
 PYTHON_DIRECTORY ?= $(PWD)
 
 PYTHON_DOCKER_CMD = docker run --rm -it \
 	-w /usr/src/app \
 	-v $(PYTHON_DIRECTORY):/usr/src/app \
-	$(PYTHON_DOCKER_ADDITIONAL) python:$(PYTHON_VERSION)-alpine
+	$(PYTHON_DOCKER_ADDITIONAL) $(PYTHON_IMAGE)
 
 python_version:
 	$(PYTHON_DOCKER_CMD) python --version
