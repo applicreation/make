@@ -4,8 +4,6 @@ ifndef TF_VERSION
 $(error "TF_VERSION is not set")
 endif
 
-TF_MAKEFILE_DIR := $(abspath $(dir $(filter %/terraform.mk,$(MAKEFILE_LIST))))
-
 TF_IMAGE ?= hashicorp/terraform:$(TF_VERSION)
 TF_DIRECTORY ?= $(PWD)
 
