@@ -18,7 +18,7 @@ ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 init: MAKE_NAME = .make
 init: MAKE_URI = https://raw.githubusercontent.com/garyrutland/$(MAKE_NAME)
 init: MAKE_VERSION = refs/heads/main
-init: MAKE_DIR = ./$(MAKE_NAME)
+init: MAKE_DIR = $(ROOT_DIR)/$(MAKE_NAME)
 init: MAKE_FILES = aws docker git python terraform
 init:
 	@rm -rf $(MAKE_DIR) && mkdir -p $(MAKE_DIR)
