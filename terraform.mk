@@ -16,6 +16,8 @@ TF_DOCKER_CMD = docker run --rm -it \
 	-v $(TF_DIRECTORY):/terraform \
 	$(TF_DOCKER_ADDITIONAL) $(TF_IMAGE)
 
+tf_%: AWS_PROFILE ?= default
+
 # main commands
 
 ## init - prepare your working directory for other commands
