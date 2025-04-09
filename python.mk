@@ -4,8 +4,6 @@ ifndef PYTHON_VERSION
 $(error "PYTHON_VERSION is not set")
 endif
 
-PYTHON_MAKEFILE_DIR := $(abspath $(dir $(filter %/python.mk,$(MAKEFILE_LIST))))
-
 PYTHON_IMAGE ?= python:$(PYTHON_VERSION)-alpine
 PYTHON_DIRECTORY ?= $(PWD)
 

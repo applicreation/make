@@ -8,8 +8,6 @@ ifndef AWS_REGION
 $(error "AWS_REGION is not set")
 endif
 
-AWS_MAKEFILE_DIR := $(abspath $(dir $(filter %/aws.mk,$(MAKEFILE_LIST))))
-
 AWS_VERSION ?= latest
 AWS_IMAGE ?= amazon/aws-cli:$(AWS_VERSION)
 
