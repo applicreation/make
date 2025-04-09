@@ -1,13 +1,25 @@
 # aws
 
-AWS_MAKEFILE_DIR = $(abspath $(dir $(filter %/aws.mk,$(MAKEFILE_LIST))))
+ifndef AWS_PROFILE
+$(error "AWS_PROFILE is not set")
+endif
 
-include $(AWS_MAKEFILE_DIR)/_internal/validation-aws.mk
-include $(AWS_MAKEFILE_DIR)/_internal/validation-docker.mk
+ifndef AWS_ACCOUNT_ID
+$(error "AWS_ACCOUNT_ID is not set")
+endif
+
+ifndef AWS_REGION
+$(error "AWS_REGION is not set")
+endif
+
+AWS_MAKEFILE_DIR := $(abspath $(dir $(filter %/aws.mk,$(MAKEFILE_LIST))))
+
+AWS_VERSION ?= latest
+AWS_IMAGE ?= amazon/aws-cli:$(AWS_VERSION)
 
 AWS_DOCKER_CMD = docker run --rm -it \
 	-v ~/.aws:/root/.aws:ro \
-	$(AWS_DOCKER_ADDITIONAL) amazon/aws-cli
+	$(AWS_DOCKER_ADDITIONAL) $(AWS_IMAGE)
 
 aws_version:
 	$(AWS_DOCKER_CMD) --version
