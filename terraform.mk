@@ -18,6 +18,16 @@ TF_DOCKER_CMD = docker run --rm -it \
 
 tf_%: AWS_PROFILE ?= default
 
+tf_prerequisites:
+ifdef TF_STATE_BUCKET
+	$(AWS_DOCKER_CMD) s3api create-bucket --bucket $(TF_STATE_BUCKET) --create-bucket-configuration LocationConstraint=$(AWS_REGION)
+	$(AWS_DOCKER_CMD) s3api put-bucket-versioning --bucket $(TF_STATE_BUCKET) --versioning-configuration Status=Enabled
+endif
+ifdef TF_LOCK_TABLE
+	$(AWS_DOCKER_CMD) dynamodb create-table --table-name $(TF_LOCK_TABLE) --attribute-definitions AttributeName=LockID,AttributeType=S --key-schema AttributeName=LockID,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+endif
+	@echo "terraform prerequisites created"
+
 # main commands
 
 ## init - prepare your working directory for other commands
