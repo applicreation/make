@@ -13,6 +13,9 @@ dkr_images:
 dkr_ps:
 	docker ps
 
+dkr_ps_all:
+	docker ps -a
+
 dkr_system_prune:
 	docker system prune -fa --volumes
 	docker volume prune -f
