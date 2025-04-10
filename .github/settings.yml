@@ -3,7 +3,7 @@
 repository:
   name: make
   description: Makefiles abstracting some common tasks
-  homepage: https://github.com/applicreation/make
+  homepage: https://github.com/daemonite-labs/make
   topics: make
   private: false
   has_issues: true

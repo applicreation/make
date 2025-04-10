@@ -26,7 +26,7 @@ MAKE_DIR = $(ROOT_DIR)/.make
 
 # your repository specific config go here
 
-init: MAKE_URI = https://raw.githubusercontent.com/applicreation/make
+init: MAKE_URI = https://raw.githubusercontent.com/daemonite-labs/make
 init: MAKE_VERSION = v0
 init: MAKE_FILES = aws docker
 init:
