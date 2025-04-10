@@ -17,7 +17,7 @@ MAKE_DIR = $(ROOT_DIR)/.make
 # your repo/project specific config go here
 
 init: MAKE_URI = https://raw.githubusercontent.com/garyrutland/make
-init: MAKE_VERSION = refs/heads/main
+init: MAKE_VERSION = v0
 init: MAKE_FILES = aws docker
 init:
 	@rm -rf $(MAKE_DIR) && mkdir -p $(MAKE_DIR)
