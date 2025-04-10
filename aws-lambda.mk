@@ -1,6 +1,9 @@
+lambda_%: DOCKER_COMPOSE_FILE = $(CURDIR)/docker-compose.yaml
+lambda_%: DOCKER_COMPOSE_CMD = docker compose -f $(DOCKER_COMPOSE_FILE)
+
 lambda_build:
-	docker compose build $(SERVICE)
+	$(DOCKER_COMPOSE_CMD) build $(SERVICE)
 
 lambda_run: lambda_build
-	docker compose up --abort-on-container-exit
-	docker compose down
+	$(DOCKER_COMPOSE_CMD) up --abort-on-container-exit
+	$(DOCKER_COMPOSE_CMD) down
