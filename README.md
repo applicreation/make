@@ -15,6 +15,8 @@ In the event other applications are needed (i.e. git) you will receive an error 
 
 ### Makefile
 
+#### Basic
+
 To use these files within your repository, you can copy and paste the following code to the top of your repository `Makefile`.  
 Alternatively, you can write a custom adaptation to replicate the same functionality.
 
