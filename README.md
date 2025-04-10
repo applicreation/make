@@ -6,7 +6,7 @@ These files are created to abstract common tasks and are designed to be used pur
 
 ## Prerequisites
 
-The primary prerequisite is to have (Docker Desktop)[https://www.docker.com/products/docker-desktop/] (or just Docker) installed.  
+The primary prerequisite is to have [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or just Docker) installed.  
 As much as possible is done via Docker to prevent individuals from having to install multiple applications or libraries as well as worrying about what versions are needed.
 
 In the event other applications are needed (i.e. git) you will receive an error if they are not installed.
