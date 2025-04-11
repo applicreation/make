@@ -1,0 +1,30 @@
+---
+name: ${LAMBDA_NAME}
+
+services:
+  curl:
+    image: curlimages/curl
+    depends_on:
+      lambda:
+        condition: service_healthy
+    command: 
+      - -s
+      - -d
+      - "@/work/event.json"
+      - lambda:8080/2015-03-31/functions/function/invocations
+    volumes:
+      - ./events:/work:ro
+  lambda:
+    build:
+      target: lambda
+      args:
+        - DIR=${LAMBDA_DIR}
+  dev:
+    build:
+      target: dev
+      args:
+        - DIR=${LAMBDA_DIR}
+    profiles:
+      - dev
+    volumes:
+      - ./${LAMBDA_NAME}/app:/app

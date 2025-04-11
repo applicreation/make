@@ -1,5 +1,5 @@
-lambda_%: export NAME += -$(subst _,-,$(notdir $(CURDIR)))
-lambda_%: export DIR = .
+lambda_%: export LAMBDA_NAME = $(NAME)-$(subst _,-,$(notdir $(CURDIR)))
+lambda_%: export LAMBDA_DIR = .
 
 lambda_%: DOCKER_COMPOSE_FILE = $(CURDIR)/docker-compose.yaml
 

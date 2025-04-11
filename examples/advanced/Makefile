@@ -1,7 +1,7 @@
 ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 MAKE_DIR = $(ROOT_DIR)/../../src
 
-export NAME = make-simple
+export NAME = make-advanced
 
 AWS_PROFILE = default
 AWS_REGION = eu-west-1
