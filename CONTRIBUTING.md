@@ -52,6 +52,6 @@ Please review and adhere to our [Code of Conduct](./CODE_OF_CONDUCT.md) in all y
 
 ## Questions and support
 
-If you have any questions or need help, please [open an issue](./issues).
+If you have any questions or need help, please [open an issue](https://github.com/daemonite-labs/make/issues).
 
 Thank you for your contributions!
