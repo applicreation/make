@@ -24,14 +24,14 @@ Alternatively, you can write a custom adaptation to replicate the same functiona
 ROOT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 MAKE_DIR = $(ROOT_DIR)/.make
 
-# your repository specific config go here
-
 init: MAKE_URI = https://raw.githubusercontent.com/daemonite-labs/make
 init: MAKE_VERSION = v0
 init: MAKE_FILES = aws docker
 init:
 	@rm -rf $(MAKE_DIR) && mkdir -p $(MAKE_DIR)
 	@for MAKE_FILE in $(MAKE_FILES); do docker run --rm curlimages/curl -sSL $(MAKE_URI)/$(MAKE_VERSION)/src/$${MAKE_FILE}.mk > $(MAKE_DIR)/$${MAKE_FILE}.mk; done
+
+# your repository specific config go here
 
 -include $(MAKE_DIR)/*.mk
 
