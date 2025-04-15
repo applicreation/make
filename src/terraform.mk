@@ -52,7 +52,6 @@ else ifdef REPLACE
 else
 	$(TF_PLAN_CMD)
 endif
-	$(TF_DOCKER_CMD) plan
 
 ## apply - create or update infrastructure
 tf_apply: TF_APPLY_CMD = $(TF_DOCKER_CMD) apply
