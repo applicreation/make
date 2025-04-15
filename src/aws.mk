@@ -13,7 +13,7 @@ AWS_IMAGE ?= amazon/aws-cli:$(AWS_VERSION)
 
 AWS_DOCKER_CMD = docker run --rm -it \
 	-v ~/.aws:/root/.aws:ro \
-	$(AWS_DOCKER_ADDITIONAL) $(AWS_IMAGE)
+	$(AWS_ADDITIONAL) $(AWS_IMAGE)
 
 aws_version:
 	$(AWS_DOCKER_CMD) --version

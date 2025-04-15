@@ -5,14 +5,14 @@ $(error "TF_VERSION is not set")
 endif
 
 TF_IMAGE ?= hashicorp/terraform:$(TF_VERSION)
-TF_DIRECTORY ?= $(PWD)
+TF_DIRECTORY ?= $(CURDIR)
 
 TF_DOCKER_CMD = docker run --rm -it \
 	-w /terraform \
 	-v ~/.aws:/root/.aws:ro \
 	-v ~/.ssh:/root/.ssh:ro \
 	-v $(TF_DIRECTORY):/terraform \
-	$(TF_DOCKER_ADDITIONAL) $(TF_IMAGE)
+	$(TF_ADDITIONAL) $(TF_IMAGE)
 
 tf_%: AWS_PROFILE ?= default
 
